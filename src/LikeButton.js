@@ -38,7 +38,7 @@ const GetQuoteComponent = () => {
   return (
     <div className='flex flex-col items-center justify-center p-20'>
       <button className='p-2 w-max rounded-xl bg-green-500 text-white' onClick={likeHandler}>Like</button>
-      <p>Likes: {count}</p>
+      <p>No. of quotes Liked: {count}</p>
       {quotes ? (
         <>
           <p>{quotes.content}</p>
