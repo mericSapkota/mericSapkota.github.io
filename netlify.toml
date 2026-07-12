@@ -1,0 +1,5 @@
+# Optional — only used if you deploy on Netlify. Vercel and Cloudflare Pages
+# auto-detect Astro and need no config file at all.
+[build]
+  command = "npm run build"
+  publish = "dist"

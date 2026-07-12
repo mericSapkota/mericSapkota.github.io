@@ -1,0 +1,42 @@
+---
+import '../styles/global.css'
+import Nav from '../components/Nav'
+import SiteFooter from '../components/SiteFooter'
+
+interface Props {
+  title?: string
+  description?: string
+  current?: 'home' | 'projects' | 'writeups' | 'blog' | 'contact'
+}
+
+const {
+  title = '0xm3r1c',
+  description = '0xm3r1c — security researcher & builder. Projects, CTF writeups and blog.',
+  current = 'home',
+} = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="alternate" type="application/rss+xml" title="0xm3r1c — Blog" href="/rss.xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="mx-auto max-w-[1000px] px-[clamp(16px,4vw,40px)] pt-5 pb-15">
+      <Nav current={current} />
+      <slot />
+      <SiteFooter />
+    </div>
+  </body>
+</html>

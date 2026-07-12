@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-parchment: #f6e7b8;
+  --color-ink: #2b1d12;
+  --color-cream: #fff7dc;
+  --color-red: #c1443c;
+  --color-red-dark: #8f2c26;
+  --color-gold: #e0a526;
+  --color-green: #4a7a3a;
+  --color-blue: #3b6ea5;
+
+  --font-display: "Press Start 2P", monospace;
+  --font-body: "VT323", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-parchment text-ink;
+    font-family: var(--font-body);
+    image-rendering: pixelated;
+    margin: 0;
+  }
+  a {
+    @apply text-red;
+  }
+  a:hover {
+    @apply text-red-dark;
+  }
+}
+
+/* Chamfered "cut corner" edges used by the pixel-art buttons and nav bar. */
+@layer utilities {
+  .chamfer-md {
+    clip-path: polygon(
+      0 6px, 6px 6px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+      100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%,
+      6px 100%, 6px calc(100% - 6px), 0 calc(100% - 6px)
+    );
+  }
+  .chamfer-lg {
+    clip-path: polygon(
+      0 8px, 8px 8px, 8px 0, calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px,
+      100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), calc(100% - 8px) 100%,
+      8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px)
+    );
+  }
+
+  /* Long-form Markdown body styling for blog & writeup posts. */
+  .prose-pixel {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  .prose-pixel h2 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    margin: 2rem 0 1rem;
+    color: var(--color-red-dark);
+  }
+  .prose-pixel h3 {
+    font-family: var(--font-display);
+    font-size: 12px;
+    margin: 1.5rem 0 0.75rem;
+  }
+  .prose-pixel p {
+    margin: 0 0 1rem;
+  }
+  .prose-pixel ul,
+  .prose-pixel ol {
+    margin: 0 0 1rem 1.25rem;
+  }
+  .prose-pixel li {
+    margin: 0.25rem 0;
+  }
+  .prose-pixel a {
+    text-decoration: underline;
+  }
+  .prose-pixel img {
+    display: block;
+    max-width: 100%;
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    margin: 1.5rem 0;
+  }
+  .prose-pixel pre {
+    background: var(--color-ink);
+    color: var(--color-cream);
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 15px;
+    margin: 0 0 1.5rem;
+  }
+  .prose-pixel :not(pre) > code {
+    background: var(--color-cream);
+    border: 1px solid var(--color-ink);
+    padding: 1px 5px;
+    font-size: 16px;
+  }
+  .prose-pixel blockquote {
+    border-left: 4px solid var(--color-gold);
+    margin: 0 0 1rem;
+    padding-left: 1rem;
+    opacity: 0.85;
+  }
+}
