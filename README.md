@@ -103,18 +103,42 @@ Drop images in `public/assets/` and reference them with an absolute path, e.g.
 
 ---
 
-## Deploying
+## Deploying to GitHub Pages
 
-This is a static site, so any static host works. The simplest path:
+This repo includes a GitHub Actions workflow (`.github/workflows/deploy.yml`)
+that auto-deploys to Pages on every `git push main`.
 
-1. Push this repo to GitHub.
-2. Connect it to **Netlify**, **Vercel**, or **Cloudflare Pages** (all free for
-   this). Build command: `npm run build`. Publish directory: `dist`.
-3. Every `git push` triggers a rebuild and deploy.
+### Setup
 
-Before going live, set your real domain in `astro.config.mjs` (`site:`) so the
-RSS feed uses correct absolute URLs, and swap the placeholder handles in
-`src/pages/contact.astro`.
+1. Create a **new GitHub repo** named `0xm3r1c-portfolio` (or any name).
+2. In the repo's **Settings → Pages → Build and deployment**:
+   - Source: **GitHub Actions** (should already be selected).
+3. Push your code:
+   ```sh
+   git remote add origin https://github.com/<username>/0xm3r1c-portfolio.git
+   git push -u origin main
+   ```
+
+That's it — the workflow runs, builds, and deploys automatically. Your site is
+live at `https://<username>.github.io/0xm3r1c-portfolio`.
+
+### If you want it at `<username>.github.io` (no `/0xm3r1c-portfolio` path)
+
+Create a repo named `<username>.github.io` instead, then in `astro.config.mjs`:
+- Change `site:` to `https://<username>.github.io`
+- Comment out the `base:` line (it stays commented for a root deployment).
+
+### Custom domain
+
+Point your domain's DNS to GitHub Pages (see
+[GitHub's docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
+Update `site:` in `astro.config.mjs` to your domain so RSS URLs are correct.
+
+### Other hosts
+
+This is static HTML, so it also works on Netlify, Vercel, or Cloudflare Pages.
+Just connect the repo and they auto-detect Astro (build: `npm run build`, dir:
+`dist`). The `netlify.toml` is already configured if you pick Netlify.
 
 ## Optional: a web editor instead of files
 
