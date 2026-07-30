@@ -2,7 +2,7 @@
 import '../styles/global.css'
 import Nav from '../components/Nav'
 import SiteFooter from '../components/SiteFooter'
-
+import PostCard from '../components/PostCard'
 interface Props {
   title?: string
   description?: string
@@ -47,7 +47,7 @@ const GOATCOUNTER_CODE = ''
     }
   </head>
   <body>
-    <div class="mx-auto max-w-[1000px] px-[clamp(16px,4vw,40px)] pt-5 pb-15">
+    <div class="mx-auto w-full sm:w-2/3 px-[clamp(16px,4vw,40px)] pt-5 pb-15">
       <Nav current={current} />
       <slot />
       <SiteFooter />

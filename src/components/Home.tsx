@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <>
       <section
-        className="relative mt-6 overflow-hidden border-[3px] border-ink bg-parchment shadow-[6px_6px_0_var(--color-ink)]"
+        className="relative w-full mt-6 overflow-hidden border-[3px] border-ink bg-parchment shadow-[6px_6px_0_var(--color-ink)]"
         style={{
           // The design's own hills tile, tiled across the bottom as a pixel
           // landscape. (The referenced pixel-hero-scene.png ships blank.)

@@ -22,8 +22,8 @@ Every post is a Markdown file. Frontmatter at the top carries the title, date
 and tags; the body is plain Markdown, so code blocks get syntax highlighting:
 
 ```js
-const flag = atob("ZmxhZ3tuMHRfdGgzX3IzYWxfZmxhZ30=")
-console.log(flag)
+const flag = atob("ZmxhZ3tuMHRfdGgzX3IzYWxfZmxhZ30=");
+console.log(flag);
 ```
 
 That's the whole system. Write a file, push it, done.
