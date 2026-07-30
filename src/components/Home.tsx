@@ -1,7 +1,13 @@
+import { getCollection } from "astro:content";
+import { projects } from "../data/projects";
+
+const writeups = await getCollection("writeups", ({ data }) => !data.draft);
+const blogs = await getCollection("blog", ({ data }) => !data.draft);
+const categories = new Set(writeups.map((w) => w.data.category));
 const STATS = [
-  { value: 6, label: "Projects", color: "text-green" },
-  { value: 12, label: "Writeups", color: "text-blue" },
-  { value: 5, label: "Categories", color: "text-red" },
+  { value: projects.length, label: "Projects", color: "text-green" },
+  { value: writeups.length, label: "Writeups", color: "text-blue" },
+  { value: categories.size, label: "Categories", color: "text-red" },
   { value: 4, label: "Years", color: "text-gold" },
 ] as const;
 
