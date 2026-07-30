@@ -14,6 +14,10 @@ const {
   description = '0xm3r1c — security researcher & builder. Projects, CTF writeups and blog.',
   current = 'home',
 } = Astro.props
+
+// Sign up free at https://www.goatcounter.com, then set your site code here
+// (the "mycode" in mycode.goatcounter.com). Leave blank to disable tracking.
+const GOATCOUNTER_CODE = ''
 ---
 
 <html lang="en">
@@ -31,6 +35,16 @@ const {
     />
     <link rel="alternate" type="application/rss+xml" title="0xm3r1c — Blog" href="/rss.xml" />
     <title>{title}</title>
+    {
+      GOATCOUNTER_CODE && import.meta.env.PROD && (
+        <script
+          is:inline
+          data-goatcounter={`https://${GOATCOUNTER_CODE}.goatcounter.com/count`}
+          async
+          src="//gc.zgo.at/count.js"
+        />
+      )
+    }
   </head>
   <body>
     <div class="mx-auto max-w-[1000px] px-[clamp(16px,4vw,40px)] pt-5 pb-15">
