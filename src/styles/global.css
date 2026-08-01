@@ -20,9 +20,19 @@
     font-family: var(--font-body);
     image-rendering: pixelated;
     margin: 0;
+    cursor:
+      url("/pointer_b_shaded.png") 1 1,
+      auto;
   }
   a {
     @apply text-red;
+  }
+  a,
+  button,
+  [role="button"] {
+    cursor:
+      url("/hand_small_point.png") 0 0,
+      pointer;
   }
   a:hover {
     @apply text-red-dark;
@@ -33,16 +43,34 @@
 @layer utilities {
   .chamfer-md {
     clip-path: polygon(
-      0 6px, 6px 6px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
-      100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%,
-      6px 100%, 6px calc(100% - 6px), 0 calc(100% - 6px)
+      0 6px,
+      6px 6px,
+      6px 0,
+      calc(100% - 6px) 0,
+      calc(100% - 6px) 6px,
+      100% 6px,
+      100% calc(100% - 6px),
+      calc(100% - 6px) calc(100% - 6px),
+      calc(100% - 6px) 100%,
+      6px 100%,
+      6px calc(100% - 6px),
+      0 calc(100% - 6px)
     );
   }
   .chamfer-lg {
     clip-path: polygon(
-      0 8px, 8px 8px, 8px 0, calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px,
-      100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), calc(100% - 8px) 100%,
-      8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px)
+      0 8px,
+      8px 8px,
+      8px 0,
+      calc(100% - 8px) 0,
+      calc(100% - 8px) 8px,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      8px calc(100% - 8px),
+      0 calc(100% - 8px)
     );
   }
 
