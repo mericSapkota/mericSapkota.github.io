@@ -51,7 +51,7 @@ const GOATCOUNTER_CODE = 'm3r1c'
   </head>
   <body>
     <div class="mx-auto w-full sm:w-2/3 px-[clamp(16px,4vw,40px)] pt-5 pb-15">
-      <Nav current={current} />
+      <Nav client:load current={current} />
       <slot />
       <SiteFooter />
     </div>
